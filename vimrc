@@ -60,14 +60,6 @@ inoremap <c-]> <c-x><c-]>
 " - Disable the scratch window completely
 set completeopt-=preview
 
-" File browsing:
-" let g:netrw_banner=0       " Disable Banner.
-" let g:netrw_browse_split=4 " Open in prior window.
-" let g:netrw_altv=1         " Open splits to the right.
-" let g:netrw_liststyle=3    " Tree view.
-" let g:netrw_list_hide=netrw_gitignore#Hide()
-" let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
-
 " Remote file browsing and editing:
 " Use :edit scp://[user@]host[:port]/[directory]
 " Example: scp://localhost/
@@ -87,7 +79,7 @@ inoremap <S-Tab> <C-d>
 " Use sparingly
 call plug#begin('~/.vim/plugged')
 
-" " Colors
+" Colors
 Plug 'flazz/vim-colorschemes'
 
 " Status bar enhancement
@@ -102,7 +94,7 @@ endif
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_follow_symlinks=2
 let g:ctrlp_working_path_mode=0
-let g:ctrlp_custom_ignore='\v(\.(o|d|a|so|ko|git|svn|ico|swp|cmd))|(node_modules)'
+let g:ctrlp_custom_ignore='\v(\.(o|d|a|so|ko|git|svn|ico|swp|cmd|DS_Store))|(node_modules)'
 
 " " Git integration
 Plug 'airblade/vim-gitgutter'
