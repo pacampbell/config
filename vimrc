@@ -16,7 +16,7 @@ set background=dark
 nnoremap <silent> <CR> :noh<CR><CR>
 
 " Show whitespace characters
-set listchars=eol:¬,tab:▸\ ,trail:·,extends:→,precedes:←,space:·
+set listchars=eol:¬,tab:»\ ,trail:·,extends:→,precedes:←,space:·
 set list
 
 " Highlight selected line
