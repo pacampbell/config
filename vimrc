@@ -84,6 +84,7 @@ Plug 'flazz/vim-colorschemes'
 
 " Status bar enhancement
 Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 
 if !exists('g:airline_symbols')
@@ -118,6 +119,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Buffer kill functionality without killing split
 Plug 'qpkorr/vim-bufkill'
+
+" Better buffer listing
+Plug 'jeetsukumaran/vim-buffergator'
+let g:buffergator_viewport_split_policy='B'
 
 " Help with HTML development
 Plug 'alvan/vim-closetag'
