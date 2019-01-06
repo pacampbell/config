@@ -26,6 +26,10 @@ set cursorline
 set path+=**
 set wildmenu
 
+" Remap buffer cycling
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -111,7 +115,8 @@ Plug 'editorconfig/editorconfig-vim'
 
 " File explorer
 Plug 'scrooloose/nerdtree'
-autocmd vimenter * NERDTree
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 let NERDTreeShowHideen=1
 let NERDTreeIgnore=['\.o$', '\.dS', '\.git$', '\.svn$']
 map <C-n> :NERDTreeToggle<CR>
