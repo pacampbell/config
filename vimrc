@@ -5,12 +5,12 @@ set nu
 set nowrap
 set signcolumn=yes
 set autoread
+set hlsearch
 set clipboard+=unnamedplus
 set fillchars+=vert:│
 set termguicolors
 colorscheme gruvbox
 set background=dark
-" colorscheme codedark
 
 " When done searching, stop highlighting
 nnoremap <silent> <CR> :noh<CR><CR>
@@ -118,6 +118,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Buffer kill functionality without killing split
 Plug 'qpkorr/vim-bufkill'
+
+" Help with HTML development
+Plug 'alvan/vim-closetag'
+Plug 'Valloric/MatchTagAlways'
 
 call plug#end()
 
