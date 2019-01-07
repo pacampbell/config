@@ -89,7 +89,7 @@ Plug 'flazz/vim-colorschemes'
 " Status bar enhancement
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -99,7 +99,7 @@ endif
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_follow_symlinks=2
 let g:ctrlp_working_path_mode=0
-let g:ctrlp_custom_ignore='\v(\.(o|d|a|so|ko|git|svn|ico|swp|cmd|DS_Store))|(node_modules)'
+let g:ctrlp_custom_ignore='\v(\.(o|d|a|so|ko|pyc|git|svn|ico|swp|cmd|DS_Store))|(node_modules|__pycache__)'
 
 " " Git integration
 Plug 'airblade/vim-gitgutter'
@@ -118,7 +118,7 @@ Plug 'scrooloose/nerdtree'
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 let NERDTreeShowHideen=1
-let NERDTreeIgnore=['\.o$', '\.dS', '\.git$', '\.svn$']
+let NERDTreeIgnore=['\.o$', '\.dS', '\.git$', '\.svn$', '\.pyc$', '__pycache__']
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
