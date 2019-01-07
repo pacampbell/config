@@ -8,7 +8,7 @@ set autoread
 set hlsearch
 set clipboard+=unnamedplus
 set fillchars+=vert:│
-set termguicolors
+set lazyredraw
 colorscheme gruvbox
 set background=dark
 
@@ -55,10 +55,8 @@ command! MakeTags !ctags -R --exclude=.git --exclude=node_modules .
 " Use ^n and ^p to go back and forth in the suggestion list.
 
 " - Remap omni-complete ^x^o to ^space
-imap <c-space> <c-x><c-o>
 
 " - Remap local-complete ^x^] to ^] in insert mode
-inoremap <c-]> <c-x><c-]>
 
 " Omni complete:
 " - Disable the scratch window completely
@@ -89,6 +87,7 @@ Plug 'flazz/vim-colorschemes'
 " Status bar enhancement
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts=0
 
 if !exists('g:airline_symbols')
@@ -118,7 +117,7 @@ Plug 'scrooloose/nerdtree'
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 let NERDTreeShowHideen=1
-let NERDTreeIgnore=['\.o$', '\.dS', '\.git$', '\.svn$', '\.pyc$', '__pycache__']
+let NERDTreeIgnore=['\.o$', '\.ko$', '\.d$', '\.git$', '\.svn$', '\.pyc$', '__pycache__']
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -132,6 +131,23 @@ let g:buffergator_viewport_split_policy='B'
 " Help with HTML development
 Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
+
+" Scratch buffer
+Plug 'mtth/scratch.vim'
+let g:scratch_persistence_file=1
+
+" Sublime text search capability
+Plug 'dyng/ctrlsf.vim'
+let g:ctrlsf_search_mode='async'
+let g:ctrlsf_position='right'
+let g:ctrlsf_auto_focus = {'at': 'start'}
+" let g:ctrlsf_auto_close = {'normal': 0, 'compact': 0}
+let g:ctrlsf_extra_backend_args = {'ack': '--ignore-file=is:tags'}
+nnoremap <C-f> :CtrlSF "
+nnoremap <S-f> :CtrlSFToggle<CR>
+
+" Better tab completetion
+Plug 'ajh17/VimCompletesMe'
 
 call plug#end()
 
