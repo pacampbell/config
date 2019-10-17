@@ -11,6 +11,7 @@ set fillchars+=vert:│
 set lazyredraw
 colorscheme gruvbox
 set background=dark
+set encoding=UTF-8
 
 " When done searching, stop highlighting
 nnoremap <silent> <CR> :noh<CR><CR>
