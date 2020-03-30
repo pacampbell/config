@@ -12,6 +12,13 @@ set lazyredraw
 colorscheme gruvbox
 set background=dark
 set encoding=UTF-8
+set hidden
+set nobackup
+set nowritebackup
+
+" NASM highlighting
+autocmd BufRead,BufNewFile *.nasm set filetype=nasm
+autocmd BufRead,BufNewFile *.S let asmsyntax='gas'|let filetype_inc='gas'
 
 " When done searching, stop highlighting
 nnoremap <silent> <CR> :noh<CR><CR>
@@ -38,6 +45,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Make a tags file for your project with the following command
 " Note that ctags needs to be installed
 command! MakeTags !ctags -R --exclude=.git --exclude=node_modules .
+
+autocmd FileType verilog setlocal shiftwidth=3 softtabstop=3 expandtab
 
 " Once a tag file exists, use the following commands to navigate
 " - Use ^]   to jump to a tag under the current cursor.
@@ -104,7 +113,7 @@ let g:ctrlp_custom_ignore='\v(\.(o|d|a|so|ko|pyc|git|svn|ico|swp|cmd|DS_Store))|
 " " Git integration
 Plug 'airblade/vim-gitgutter'
 set updatetime=100
-"
+
 Plug 'tpope/vim-fugitive'
 
 " Better highlighting for C
@@ -133,10 +142,6 @@ let g:buffergator_viewport_split_policy='B'
 Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
 
-" Scratch buffer
-Plug 'mtth/scratch.vim'
-let g:scratch_persistence_file=1
-
 " Sublime text search capability
 Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_search_mode='async'
@@ -147,8 +152,7 @@ let g:ctrlsf_extra_backend_args = {'ack': '--ignore-file=is:tags'}
 nnoremap <C-f> :CtrlSF "
 nnoremap <S-f> :CtrlSFToggle<CR>
 
-" Better tab completetion
-Plug 'ajh17/VimCompletesMe'
+" GAS asm syntax highlighting
+Plug 'Shirk/vim-gas'
 
 call plug#end()
-
